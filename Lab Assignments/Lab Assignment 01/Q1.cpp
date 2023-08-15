@@ -53,7 +53,7 @@ int main() {
                 cin>>pos;
                 cout<<"Enter the the element you want to insert"<<endl;
                 cin>>ele;
-                for(int x = num; x > 0; x--) {
+                for(int x = num; x > pos; x--) {
                     arr[x] = arr[x-1];  //Because while creating array the loop is (x < num) so last element is left
                 }
                 arr[pos] = ele;
