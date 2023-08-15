@@ -1,31 +1,31 @@
 #include <iostream>
 using namespace std;
 
-class LowerTriangularMatrix {
+class Lower {
 private:
-    int* elements;
+    int* ele;
     int size;
 
 public:
-    LowerTriangularMatrix(int n) : size(n) {
-        elements = new int[n * (n + 1) / 2]{};
+    Lower(int n) : size(n) {
+        ele = new int[n * (n + 1) / 2];
     }
 
-    ~LowerTriangularMatrix() {
-        delete[] elements;
+    ~Lower() {
+        delete[] ele;
     }
 
     void set(int i, int j, int value) {
         if (i >= j) {
             int index = i * (i + 1) / 2 + j; 
-            elements[index] = value;
+            ele[index] = value;
         }
     }
 
     int get(int i, int j) const {
         if (i >= j) {
             int index = i * (i + 1) / 2 + j;
-            return elements[index];
+            return ele[index];
         }
         return 0;
     }
@@ -42,21 +42,21 @@ public:
 
 int main() {
     int size = 4;
-    LowerTriangularMatrix matrix(size);
+    Lower m(size);
 
-    matrix.set(0, 0, 5);
-    matrix.set(1, 0, 3);
-    matrix.set(1, 1, 7);
-    matrix.set(2, 0, 2);
-    matrix.set(2, 1, 1);
-    matrix.set(2, 2, 9);
-    matrix.set(3, 0, 8);
-    matrix.set(3, 1, 6);
-    matrix.set(3, 2, 4);
-    matrix.set(3, 3, 2);
+    m.set(0, 0, 5);
+    m.set(1, 0, 3);
+    m.set(1, 1, 7);
+    m.set(2, 0, 2);
+    m.set(2, 1, 1);
+    m.set(2, 2, 9);
+    m.set(3, 0, 8);
+    m.set(3, 1, 5);
+    m.set(3, 2, 4);
+    m.set(3, 3, 2);
 
-    cout << "Lower Triangular Matrix:" << endl;
-    matrix.display();
+    cout << "Matrix is :" << endl;
+    m.display();
 
     return 0;
 }

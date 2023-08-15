@@ -3,20 +3,20 @@
 #include <iostream>
 using namespace std;
 
-class DiagonalMatrix {
+class Diag {
 private:
     int* diagonalElements;
     int size;
 
 public:
-    DiagonalMatrix(int n) : size(n) {
+    Diag(int n) : size(n) {
         diagonalElements = new int[n];
         for (int i = 0; i < n; ++i) {
             diagonalElements[i] = 0;
         }
     }
 
-    ~DiagonalMatrix() {
+    ~Diag() {
         delete[] diagonalElements;
     }
 
@@ -47,14 +47,14 @@ public:
 
 int main() {
     int size = 5;
-    DiagonalMatrix matrix(size);
+    Diag m(size);
 
-    matrix.set(0, 0, 5);
-    matrix.set(1, 1, 7);
-    matrix.set(2, 2, 9);
+    m.set(0, 0, 5);
+    m.set(1, 1, 7);
+    m.set(2, 2, 9);
 
     cout << "Diagonal Matrix:" << endl;
-    matrix.display();
+    m.display();
 
     return 0;
 }

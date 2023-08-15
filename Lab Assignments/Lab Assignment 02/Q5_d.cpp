@@ -1,31 +1,31 @@
 #include <iostream>
 using namespace std;
 
-class UpperTriangularMatrix {
+class Upper {
 private:
-    int* elements;
+    int* ele;
     int size;
 
 public:
-    UpperTriangularMatrix(int n) : size(n) {
-        elements = new int[n * (n + 1) / 2]{}; 
+    Upper(int n) : size(n) {
+        ele = new int[n * (n + 1) / 2]; 
     }
 
-    ~UpperTriangularMatrix() {
-        delete[] elements;
+    ~Upper() {
+        delete[] ele;
     }
 
     void set(int i, int j, int value) {
         if (i <= j) {
             int index = i * (size - i + 1) + (j - i); 
-            elements[index] = value;
+            ele[index] = value;
         }
     }
 
     int get(int i, int j) const {
         if (i <= j) {
             int index = i * (size - i + 1) + (j - i);
-            return elements[index];
+            return ele[index];
         }
         return 0;
     }
@@ -42,21 +42,21 @@ public:
 
 int main() {
     int size = 4;
-    UpperTriangularMatrix matrix(size);
+    Upper m(size);
 
-    matrix.set(0, 0, 5);
-    matrix.set(0, 1, 3);
-    matrix.set(0, 2, 2);
-    matrix.set(0, 3, 8);
-    matrix.set(1, 1, 7);
-    matrix.set(1, 2, 1);
-    matrix.set(1, 3, 6);
-    matrix.set(2, 2, 9);
-    matrix.set(2, 3, 4);
-    matrix.set(3, 3, 2);
+    m.set(0, 0, 5);
+    m.set(0, 1, 3);
+    m.set(0, 2, 2);
+    m.set(0, 3, 8);
+    m.set(1, 1, 7);
+    m.set(1, 2, 1);
+    m.set(1, 3, 6);
+    m.set(2, 2, 9);
+    m.set(2, 3, 4);
+    m.set(3, 3, 2);
 
-    cout << "Upper Triangular Matrix:" << endl;
-    matrix.display();
+    cout << "matrix is :" << endl;
+    m.display();
 
     return 0;
 }
