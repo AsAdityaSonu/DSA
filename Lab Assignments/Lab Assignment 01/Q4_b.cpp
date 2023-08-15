@@ -72,8 +72,7 @@ int main()  {
 
     cout<<"multiply of the matrix=\n";    
     for(i=0;i<n;i++){    
-        for(j=0;j<n;j++){    
-            res[i][j]=0;    
+        for(j=0;j<n;j++){
             for(k=0;k<n;k++){    
                 res[i][j]+=a[i][k]*b[k][j];    
             }    

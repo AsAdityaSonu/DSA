@@ -4,15 +4,38 @@
 #include <iostream>
 using namespace std;
 
-int main(){
-    vector<int> arr;
-    int num;
-    cout<<"Enter the number of elements: ";
-    cin >> num;
-    arr.resize(num);
+void rem(int arr[], int &size) {
+    int newS = 0;
 
-    cout<<"Enter "<<arr.size()<<" element(s) for array: "<<endl;
-    for(int i=0; i<num; i++){
-        cin >> arr[i];
-    }    
+    for (int i = 0; i < size; i++) {
+        bool isDup = false;
+
+        for (int j = 0; j < newS; j++) {
+            if (arr[i] == arr[j]) {
+                isDup = true;
+                break;
+            }
+        }
+
+        if (!isDup) {
+            arr[newS] = arr[i];
+            newS++;
+        }
+    }
+
+    size = newS;
+}
+
+int main() {
+    int Arr[] = {1, 2, 2, 3, 4, 4, 5};
+    int size = sizeof(Arr) / sizeof(Arr[0]);
+
+    rem(Arr, size);
+
+    cout << "Unique elements: ";
+    for (int i = 0; i < size; i++) {
+        cout << Arr[i] << " ";
+    }
+
+    return 0;
 }
