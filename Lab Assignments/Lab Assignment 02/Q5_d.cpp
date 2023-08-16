@@ -1,62 +1,57 @@
-#include <iostream>
+// Upper triangular Matrix
+
+#include<iostream>
 using namespace std;
 
-class Upper {
-private:
-    int* ele;
+class Upper{
+    private:
+    int n[10][10];
     int size;
-
-public:
-    Upper(int n) : size(n) {
-        ele = new int[n * (n + 1) / 2]; 
-    }
-
-    ~Upper() {
-        delete[] ele;
-    }
-
-    void set(int i, int j, int value) {
-        if (i <= j) {
-            int index = i * (size - i + 1) + (j - i); 
-            ele[index] = value;
-        }
-    }
-
-    int get(int i, int j) const {
-        if (i <= j) {
-            int index = i * (size - i + 1) + (j - i);
-            return ele[index];
-        }
-        return 0;
-    }
-
-    void display() const {
-        for (int i = 0; i < size; ++i) {
-            for (int j = 0; j < size; ++j) {
-                cout << get(i, j) << " ";
+    public:
+    void set( int size ){
+        this->size = size;
+        // Loop
+        for(int i=0;i<(size);i++){
+            for(int j=0;j<(size);j++){
+                if(j>=i){
+                    cout<<"Enter the element at index ("<<i<<","<<j<<") : ";
+                    cin>>n[i][j];
+                }
             }
-            cout << endl;
+        }
+
+    }
+
+    void get( ){
+        cout<<"Matrix is :"<<endl;
+        for(int i=0;i<(size);i++){
+            for(int j=0;j<(size);j++){
+                if(j>=i){
+                    cout<<" "<<n[i][j];
+                }else{
+                    cout<<" "<<0;
+                }
+            }
+            cout<<endl;
         }
     }
+
 };
 
-int main() {
-    int size = 4;
-    Upper m(size);
+int main()
+{
+    int size;
+    Upper a;
 
-    m.set(0, 0, 5);
-    m.set(0, 1, 3);
-    m.set(0, 2, 2);
-    m.set(0, 3, 8);
-    m.set(1, 1, 7);
-    m.set(1, 2, 1);
-    m.set(1, 3, 6);
-    m.set(2, 2, 9);
-    m.set(2, 3, 4);
-    m.set(3, 3, 2);
+    //Matrix order
+    cout<<"Matrix order: ";
+    cin>>size;
 
-    cout << "matrix is :" << endl;
-    m.display();
+    // Setting values
+    a.set(size);
 
+    // Getting values
+    a.get();
+    
     return 0;
 }

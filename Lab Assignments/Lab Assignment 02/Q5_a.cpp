@@ -1,60 +1,57 @@
 // Diagonal Matrix
 
-#include <iostream>
+#include<iostream>
 using namespace std;
 
-class Diag {
-private:
-    int* diagonalElements;
+class Diag{
+    private:
+    int n[10][10];
     int size;
-
-public:
-    Diag(int n) : size(n) {
-        diagonalElements = new int[n];
-        for (int i = 0; i < n; ++i) {
-            diagonalElements[i] = 0;
-        }
-    }
-
-    ~Diag() {
-        delete[] diagonalElements;
-    }
-
-    void set(int i, int j, int value) {
-        if (i != j) {
-            cout << "Only diagonal elements can be set." << endl;
-            return;
-        }
-        diagonalElements[i] = value;
-    }
-
-    int get(int i, int j) const {
-        if (i == j) {
-            return diagonalElements[i];
-        }
-        return 0;
-    }
-
-    void display() const {
-        for (int i = 0; i < size; ++i) {
-            for (int j = 0; j < size; ++j) {
-                cout << get(i, j) << " ";
+    public:
+    void set( int size ){
+        this->size = size;
+        // Loop
+        for(int i=0;i<(size);i++){
+            for(int j=0;j<(size);j++){
+                if(i==j){
+                    cout<<"Enter the element at index ("<<i<<","<<j<<") : ";
+                    cin>>n[i][j];
+                }
             }
-            cout << endl;
+        }
+
+    }
+
+    void get( ){
+        cout<<"Matrix is :"<<endl;
+        for(int i=0;i<(size);i++){
+            for(int j=0;j<(size);j++){
+                if(i==j){
+                    cout<<" "<<n[i][j];
+                }else{
+                    cout<<" "<<0;
+                }
+            }
+            cout<<endl;
         }
     }
+
 };
 
-int main() {
-    int size = 5;
-    Diag m(size);
+int main()
+{
+    int size;
+    Diag a;
 
-    m.set(0, 0, 5);
-    m.set(1, 1, 7);
-    m.set(2, 2, 9);
+    //Matrix order
+    cout<<"Matrix order: ";
+    cin>>size;
 
-    cout << "Diagonal Matrix:" << endl;
-    m.display();
+    // Setting values
+    a.set(size);
 
+    // Getting values
+    a.get();
+    
     return 0;
 }
