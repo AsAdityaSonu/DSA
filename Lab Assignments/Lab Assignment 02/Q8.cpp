@@ -11,9 +11,9 @@ bool is(int arr[], int l, int el) {
     return false;
 }
 
-int count(int arr[], int length) {
+int count(int arr[], int l) {
     int C = 0;
-    for (int i = 0; i < length; ++i) {
+    for (int i = 0; i < l; ++i) {
         if (!is(arr, i, arr[i])) {
             C++;
         }

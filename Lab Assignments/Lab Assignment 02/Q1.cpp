@@ -11,7 +11,7 @@ int bin(int arr[], int s, int t) {
         int mid = left + (right - left) / 2;
 
         if (arr[mid] == t) {
-            return mid; // Element found
+            return mid; //found
         } else if (arr[mid] < t) {
             left = mid + 1; //right half
         } else {
@@ -19,7 +19,7 @@ int bin(int arr[], int s, int t) {
         }
     }
 
-    return -1; // Element not found
+    return -1; // not found
 }
 
 int main() {
@@ -32,7 +32,7 @@ int main() {
     if (result != -1) {
         cout << "Element found at index " << result << endl;
     } else {
-        cout << "Element not found in the array" << endl;
+        cout << "Element not found" << endl;
     }
 
     return 0;
