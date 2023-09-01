@@ -7,6 +7,8 @@ using namespace std;
 bool B(string &expr)
 {
     stack<char> s;
+    stack<char> p;
+    stack<char> rev;
 
     for (char ch : expr)
     {
@@ -17,20 +19,18 @@ bool B(string &expr)
         }
         else if (ch == ')' || ch == ']' || ch == '}')
         {
-            if (s.empty())
-            {
-                return false;
-            }
-
-            char top = s.top();
-            s.pop();
-
-            if ((ch == ')' && top != '(') || (ch == ']' && top != '[') || (ch == '}' && top != '{'))
-            {
-                return false;
-            }
+            p.push(ch);
         }
     }
+    
+    char q;
+
+    for(int i=0;i<p.size();i++){
+        q = p.pop();
+        rev.push(q);
+    }
+
+
     // cout<<s.empty();
     return s.empty();
 }
