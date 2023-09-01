@@ -1,15 +1,16 @@
-// Check if an expr has B parentheses
+// Check if an expr has Balanced parentheses
 #include <iostream>
 #include <stack>
 #include <string>
 using namespace std;
 
-bool B(const string &expr)
+bool B(string &expr)
 {
     stack<char> s;
 
     for (char ch : expr)
     {
+        cout<<ch;
         if (ch == '(' || ch == '[' || ch == '{')
         {
             s.push(ch);
@@ -30,7 +31,7 @@ bool B(const string &expr)
             }
         }
     }
-
+    // cout<<s.empty();
     return s.empty();
 }
 
