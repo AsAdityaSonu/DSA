@@ -16,7 +16,7 @@ int EvlExp(int oper1, int oper2, char op) {
         case '/':
             return oper1 / oper2;
     }
-    return 0; // Default case
+    return 0; 
 }
 
 int EvlPost(const string& postfix) {
@@ -25,7 +25,7 @@ int EvlPost(const string& postfix) {
 
     for (char ch : postfix) {
         if (isdigit(ch)) {
-            stack[++top] = ch - '0'; // Convert character to integer and push onto stack
+            stack[++top] = ch - '0'; // Convert character to integer
         } else if (isOperator(ch)) {
             int oper2 = stack[top--];
             int oper1 = stack[top--];
@@ -38,9 +38,9 @@ int EvlPost(const string& postfix) {
 }
 
 int main() {
-    string Pexp;
-    cout << "Enter a postfix expression: ";
-    cin >> Pexp;
+    string Pexp="53*82/-";
+    // cout << "Enter a postfix expression: ";
+    // cin >> Pexp;
 
     int result = EvlPost(Pexp);
     cout << "Result: " << result << endl;
