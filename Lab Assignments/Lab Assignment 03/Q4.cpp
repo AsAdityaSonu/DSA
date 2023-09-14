@@ -28,7 +28,7 @@ string i2Postfix(const string& infix) {
     int top = -1;
 
     for (char ch : infix) {
-        if (isalnum(ch)) {
+        if (isalnum(ch)) {  // isalnum checks if it's from A to Z or 0 to 9
             postfix += ch;
         } else if (ch == '(') {
             stack[++top] = ch;
