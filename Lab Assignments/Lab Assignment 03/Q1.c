@@ -5,7 +5,7 @@ struct stk
 {
     int q[MAX];
     int top;
-} s;
+} s,p;
 
 void init(struct stk *s)
 {
@@ -14,7 +14,7 @@ void init(struct stk *s)
 
 void isFull(struct stk s)
 {
-    if (s.top == s.top - 1)
+    if (s.top == MAX -1)
     {
         printf("full\n");
     }

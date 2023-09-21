@@ -1,5 +1,5 @@
 #include <iostream>
-#define Max 100
+#define Max 3
 using namespace std;
 
 struct queue
@@ -57,7 +57,7 @@ int dequeue(struct queue *q)
     
     if (q->front == q->rear)
     {
-        // If there's only one element, reset the queue
+        // If there is only one element
         q->front = -1;
         q->rear = -1;
     }

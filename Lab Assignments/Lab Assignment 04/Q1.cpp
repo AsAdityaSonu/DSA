@@ -102,6 +102,7 @@ int main()
 
     while (1)
     {
+        int c;
         cout << "------------------------------------------------------------------\n";
         cout << "1. ENQUEUE\t2. DEQUEUE\t3. isEmpty\t4. isFull\n5. DISPLAY\t6. PEEK\t\t7. Exit\n";
         cout << "Choose any option: ";
@@ -112,9 +113,9 @@ int main()
         // ENQUEUE
         case 1:
 
-            // cout<<"Enter number you wants to push...\n";
-            // cin>>c;
-            enqueue(&p, 5);
+            cout<<"Enter number you wants to push...\n";
+            cin>>c;
+            enqueue(&p, c);
             break;
 
         //  DEQUEUE
