@@ -1,64 +1,66 @@
 #include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
-bool isOperator(char ch) {
-    return ch == '+' || ch == '-' || ch == '*' || ch == '/';
+int prec(char c)
+{
+	if (c == '^')
+		return 3;
+	else if (c == '/' || c == '*')
+		return 2;
+	else if (c == '+' || c == '-')
+		return 1;
+	else
+		return -1;
 }
 
-bool higherP(char op1, char op2) {
-    int prec1, prec2;
-    if (op1 == '+' || op1 == '-') {
-        prec1 = 1;
-    } else {
-        prec1 = 2;
-    }
+// to postfix expression
+void infixToPostfix(string s)
+{
 
-    if (op2 == '+' || op2 == '-') {
-        prec2 = 1;
-    } else {
-        prec2 = 2;
-    }
+	stack<char> st;
+	string result;
 
-    return prec1 >= prec2;
+	for (int i = 0; i < s.length(); i++) {
+		char c = s[i];
+
+		if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')
+			|| (c >= '0' && c <= '9'))
+			result += c;
+
+		else if (c == '(')
+			st.push('(');
+
+		else if (c == ')') {
+			while (st.top() != '(') {
+				result += st.top();
+				st.pop();
+			}
+			st.pop();
+		}
+
+		else {
+			while (!st.empty() && prec(s[i]) <= prec(st.top())) {
+				result += st.top();
+				st.pop();
+			}
+			st.push(c);
+		}
+	}
+
+	while (!st.empty()) {
+		result += st.top();
+		st.pop();
+	}
+
+	cout << result << endl;
 }
 
-string i2Postfix(const string& infix) {
-    string postfix = "";
-    char stack[100];
-    int top = -1;
+int main()
+{
+	string exp = "a+b*(c^d-e)^(f+g*h)-i";
 
-    for (char ch : infix) {
-        if (isalnum(ch)) {  // isalnum checks if it's from A to Z or 0 to 9
-            postfix += ch;
-        } else if (ch == '(') {
-            stack[++top] = ch;
-        } else if (ch == ')') {
-            while (top >= 0 && stack[top] != '(') {
-                postfix += stack[top--];
-            }
-            top--; // Pop '('
-        } else if (isOperator(ch)) {
-            while (top >= 0 && stack[top] != '(' && higherP(stack[top], ch)) {
-                postfix += stack[top--];
-            }
-            stack[++top] = ch;
-        }
-    }
-
-    while (top >= 0) {
-        postfix += stack[top--];
-    }
-
-    return postfix;
-}
-
-int main() {
-    string infix;
-    cout << "Enter an infix expression: ";
-    cin >> infix;
-
-    string exp = i2Postfix(infix);
-    cout << "Postfix expression: " << exp << endl;
-
-    return 0;
+	infixToPostfix(exp);
+	
+	return 0;
 }

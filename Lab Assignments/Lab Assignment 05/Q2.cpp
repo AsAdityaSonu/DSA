@@ -45,7 +45,7 @@ int countAndDelete(struct node **head, int key)
 
 int main()
 {
-    struct node *head = nullptr;
+    struct node *head;
     struct node *second = nullptr;
     struct node *third = nullptr;
     struct node *fourth = nullptr;

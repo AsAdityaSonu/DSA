@@ -19,7 +19,7 @@ struct node *InsertAtBeg(struct node **head, int data)
     ptr->data = data;
     ptr->link = *head;
     *head = ptr;
-    return ptr;
+    return *head;
 }
 
 struct node *InsertAtEnd(struct node **head, int data)
@@ -114,7 +114,7 @@ void DelEnd(struct node **head)
     }
     else
     {
-        --prev->link = NULL;
+        prev->link = NULL;
         free(temp);
     }
 }
