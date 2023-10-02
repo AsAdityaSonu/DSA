@@ -12,13 +12,21 @@ int main()
     // INPUT
     for(int i=0; i<n; i++){
         for(int j=0; j<n; j++){
-            cin >> a[i][j];
+            // cin >> a[i][j];
+            a[i][j]=i+j+i+i+i+i;
         }
+    }
+
+    for(int i=0; i<n; i++){
+        for(int j=0; j<n; j++){
+            cout << a[i][j]<<"\t";
+        }
+        cout << endl;
     }
 
     // Transpose
     for(int i=0; i<n; i++){
-        for(int j=0; j<i+1; j++){   //use  j<i+1 not j<3 because you will get same result and only uuper half or lower half matrix is used in transpose 
+        for(int j=0; j<i; j++){   //use  j<i+1 not j<3 because you will get same result and only uuper half or lower half matrix is used in transpose 
             temp = a[i][j];
             a[i][j] = a[j][i];
             a[j][i] = temp;
@@ -29,7 +37,7 @@ int main()
     // OUTPUT
     for(int i=0; i<n; i++){
         for(int j=0; j<n; j++){
-            cout << a[i][j];
+            cout << a[i][j]<<"\t";
         }
         cout << endl;
     }

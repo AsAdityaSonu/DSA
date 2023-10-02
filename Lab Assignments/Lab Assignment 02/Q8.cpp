@@ -1,31 +1,26 @@
-#include <iostream>
-
+#include<iostream>
 using namespace std;
 
-bool is(int arr[], int l, int el) {
-    for (int i = 0; i < l; ++i) {
-        if (arr[i] == el) {
-            return true;
+int main()
+{
+    int a[]={1,2,3,3,4,4,5,56,6,6};
+    int size = sizeof(a)/sizeof(a[0]);
+    int count=0;
+
+    // cout<<size<<endl;
+    for(int i=0;i<size ;i++){
+        for(int j=0;j<size;j++){
+            if(a[i]==a[j]){
+                if(i==j){
+                    cout<<a[i]<<"\t";
+                    count++;
+                }
+                break;
+            }
+            
         }
     }
-    return false;
-}
-
-int count(int arr[], int l) {
-    int C = 0;
-    for (int i = 0; i < l; ++i) {
-        if (!is(arr, i, arr[i])) {
-            C++;
-        }
-    }
-    return C;
-}
-
-int main() {
-    int arr[] = {2, 4, 6, 2, 8, 4, 6, 10};
-    int len = sizeof(arr) / sizeof(arr[0]);
-    int dis = count(arr, len);
-    cout << "Total: " << dis << endl;
-
+    cout<<endl;
+    cout<<count<<endl;
     return 0;
 }

@@ -44,11 +44,10 @@ bool check(string str){
         if (str[i] == '{' || str[i] == '[' || str[i] == '('){
                 push(Stk,str[i]);
         }
-        else{
-            if ((peek(Stk)=='(' && str[i] == ')') || (peek(Stk)=='[' && str[i] == ']') || (peek(Stk)=='{' && str[i] == '}')){
-                pop(Stk);
-            }
+        else if ((peek(Stk)=='(' && str[i] == ')') || (peek(Stk)=='[' && str[i] == ']') || (peek(Stk)=='{' && str[i] == '}')){
+            pop(Stk);
         }
+        
     }
     if (isEmpty(Stk)){
         return true;
@@ -58,6 +57,6 @@ bool check(string str){
 int main()
 {
     string str  = "[{()}]";
-    cout<<check(str);
+    cout<<check(str)<<endl;
     return 0;
 }

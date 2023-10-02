@@ -4,7 +4,7 @@
 #include <string>
 using namespace std;
 
-void sort(string &a) {
+void sort(string &a) {      //Bubble Sorting
     for (int i = 0; i < a.length(); i++) {
         for (int j = 0; j < a.length() - i - 1; j++) {
             if ((int)a[j] > (int)a[j + 1]) { 

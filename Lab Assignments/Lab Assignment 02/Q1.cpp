@@ -3,19 +3,19 @@
 #include <iostream>
 using namespace std;
 
-int bin(int arr[], int s, int t) {
+int bin(int arr[], int s, int ele) {
     int left = 0;
     int right = s - 1;
 
     while (left <= right) {
-        int mid = left + (right - left) / 2;
+        int mid = (left +right) / 2;
 
-        if (arr[mid] == t) {
+        if (arr[mid] == ele) {
             return mid; //found
-        } else if (arr[mid] < t) {
-            left = mid + 1; //right half
+        } else if (arr[mid] < ele) {
+            left = mid; //right half
         } else {
-            right = mid - 1; //the left half
+            right = mid; //the left half
         }
     }
 
@@ -25,9 +25,10 @@ int bin(int arr[], int s, int t) {
 int main() {
     int arr[] = {1, 3, 5, 7, 9, 11, 13, 15, 17, 19};
     int size = sizeof(arr) / sizeof(arr[0]);
-    int t = 11;
+    int ele = 11;
 
-    int result = bin(arr, size, t);
+    cout<<size<<endl;
+    int result = bin(arr, size, ele);
 
     if (result != -1) {
         cout << "Element found at index " << result << endl;
