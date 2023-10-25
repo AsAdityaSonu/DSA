@@ -3,15 +3,15 @@
 using namespace std;
 
 // Self Referential structure
-struct node
+struct cnode
 {
     int data;
-    struct node *link;
+    struct cnode *link;
 };
 
-struct node *InsertAtBeg(struct node **head, int data)
+struct cnode *InsertAtBeg(struct cnode **head, int data)
 {
-    struct node *ptr = (struct node *)malloc(sizeof(struct node));
+    struct cnode *ptr = (struct cnode *)malloc(sizeof(struct cnode));
     if (!ptr)
     {
         return NULL;
@@ -22,9 +22,9 @@ struct node *InsertAtBeg(struct node **head, int data)
     return *head;
 }
 
-struct node *InsertAtEnd(struct node **head, int data)
+struct cnode *InsertAtEnd(struct cnode **head, int data)
 {
-    struct node *ptr = (struct node *)malloc(sizeof(struct node));
+    struct cnode *ptr = (struct cnode *)malloc(sizeof(struct cnode));
     if (!ptr)
     {
         return NULL;
@@ -38,7 +38,7 @@ struct node *InsertAtEnd(struct node **head, int data)
     }
     else
     {
-        struct node *temp = *head;
+        struct cnode *temp = *head;
         while (temp->link != NULL)
         {
             temp = temp->link;
@@ -48,7 +48,7 @@ struct node *InsertAtEnd(struct node **head, int data)
     return ptr;
 }
 
-struct node *InsertInBtw(struct node **head, int index, int data)
+struct cnode *InsertInBtw(struct cnode **head, int index, int data)
 {
     if (index == 0)
     {
@@ -56,14 +56,14 @@ struct node *InsertInBtw(struct node **head, int index, int data)
         return 0;
     }
 
-    struct node *ptr = (struct node *)malloc(sizeof(struct node));
+    struct cnode *ptr = (struct cnode *)malloc(sizeof(struct cnode));
     if (!ptr)
     {
         // Memory allocation failed
         return *head;
     }
 
-    struct node *temp = *head;
+    struct cnode *temp = *head;
     int i = 0;
 
     while (i != index - 1 && temp != NULL)
@@ -78,28 +78,28 @@ struct node *InsertInBtw(struct node **head, int index, int data)
     return ptr;
 }
 
-void DelBeg(struct node **head)
+void DelBeg(struct cnode **head)
 {
     if (*head == NULL)
     {
         return;
     }
-    struct node *temp = *head;
+    struct cnode *temp = *head;
     *head = (*head)->link;
     free(temp);
 }
 
-void DelEnd(struct node **head)
+void DelEnd(struct cnode **head)
 {
     if (*head == NULL)
     {
         return;
     }
 
-    struct node *temp = *head;
-    struct node *prev = NULL;
+    struct cnode *temp = *head;
+    struct cnode *prev = NULL;
 
-    // Traverse the list to find the last node
+    // Traverse the list to find the last cnode
     while (temp->link != NULL)
     {
         prev = temp;
@@ -119,7 +119,7 @@ void DelEnd(struct node **head)
     }
 }
 
-void DelInBtw(struct node **head, int index)
+void DelInBtw(struct cnode **head, int index)
 {
     if (*head == NULL || index < 0)
     {
@@ -132,8 +132,8 @@ void DelInBtw(struct node **head, int index)
         return;
     }
 
-    struct node *temp = *head;
-    struct node *prev = NULL;
+    struct cnode *temp = *head;
+    struct cnode *prev = NULL;
     int i = 0;
 
     while (temp != NULL && i != index)
@@ -153,7 +153,7 @@ void DelInBtw(struct node **head, int index)
     free(temp);
 }
 
-void SearchPos(struct node **head, int data)
+void SearchPos(struct cnode **head, int data)
 {
     if (*head == NULL)
     {
@@ -161,7 +161,7 @@ void SearchPos(struct node **head, int data)
         return;
     }
 
-    struct node *temp = *head;
+    struct cnode *temp = *head;
     int position = 0;
     bool found = false;
 
@@ -179,16 +179,16 @@ void SearchPos(struct node **head, int data)
 
     if (found)
     {
-        cout << "Node with data " << data << " found at position " << position << " from the head." << endl;
+        cout << "cnode with data " << data << " found at position " << position << " from the head." << endl;
     }
     else
     {
-        cout << "Node with data " << data << " not found in the list." << endl;
+        cout << "cnode with data " << data << " not found in the list." << endl;
     }
 }
 
 
-void trav(struct node *ptr)
+void trav(struct cnode *ptr)
 {
     while (ptr != NULL)
     {
@@ -199,14 +199,14 @@ void trav(struct node *ptr)
 
 int main()
 {
-    struct node *head;
-    struct node *second;
-    struct node *third;
+    struct cnode *head;
+    struct cnode *second;
+    struct cnode *third;
 
     // Allocating memory dynamically
-    head = (struct node *)malloc(sizeof(struct node));
-    second = (struct node *)malloc(sizeof(struct node));
-    third = (struct node *)malloc(sizeof(struct node));
+    head = (struct cnode *)malloc(sizeof(struct cnode));
+    second = (struct cnode *)malloc(sizeof(struct cnode));
+    third = (struct cnode *)malloc(sizeof(struct cnode));
     // cout<<sizeof(head)<<sizeof(second)<<sizeof(third)<<endl;
     // Linking first with second
     head->data = 10;
@@ -225,7 +225,7 @@ int main()
     while (true)
     {
         cout << "------------------------------------------------------------------\n";
-        cout << "1. Insert (begnning)\t2. Insertion (end)\t3. Insertion in between\n4. Deletion (beginning)\t5. Deletion (end)\t6. Deletion (specific node)\n7. Search (node) and display its position from head\n8. Display all the node values\t9. Exit" << endl;
+        cout << "1. Insert (begnning)\t2. Insertion (end)\t3. Insertion in between\n4. Deletion (beginning)\t5. Deletion (end)\t6. Deletion (specific cnode)\n7. Search (cnode) and display its position from head\n8. Display all the cnode values\t9. Exit" << endl;
         cout << "------------------------------------------------------------------\n";
         cout << "Please select any option from above: ";
         cin >> n;
@@ -245,7 +245,7 @@ int main()
 
         // Insertion in between
         case 3:
-            InsertInBtw(&head, 0, 2);
+            InsertInBtw(&head, 2, 3);
             break;
 
         // Deletion from the beginning
@@ -258,17 +258,17 @@ int main()
             DelEnd(&head);
             break;
 
-        // Deletion of a specific node
+        // Deletion of a specific cnode
         case 6:
             DelInBtw(&head, 1);
             break;
 
-        // Search for a node and display its position from head
+        // Search & display 
         case 7:
             SearchPos(&head, 10);
             break;
 
-        // Display all the node values
+        // Display
         case 8:
             trav(head);
             break;
