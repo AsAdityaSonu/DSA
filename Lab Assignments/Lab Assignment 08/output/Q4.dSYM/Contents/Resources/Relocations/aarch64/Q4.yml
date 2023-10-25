@@ -1,0 +1,15 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/adityapandey/Desktop/GitHub Repo/C:C++/DSA/Lab Assignments/Lab Assignment 08/output/Q4'
+relocations:
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: __Z5isBSTP5TNodeii, symObjAddr: 0x0, symBinAddr: 0x100003A84, symSize: 0xFC }
+  - { offsetInCU: 0x4443, offset: 0x4443, size: 0x8, addend: 0x0, symName: __ZNSt3__14endlB7v160006IcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_, symObjAddr: 0x270, symBinAddr: 0x100003CF4, symSize: 0x58 }
+  - { offsetInCU: 0x4483, offset: 0x4483, size: 0x8, addend: 0x0, symName: __ZNSt3__19use_facetB7v160006INS_5ctypeIcEEEERKT_RKNS_6localeE, symObjAddr: 0x37C, symBinAddr: 0x100003E00, symSize: 0x2C }
+  - { offsetInCU: 0x6CFD, offset: 0x6CFD, size: 0x8, addend: 0x0, symName: __Z5isBSTP5TNodeii, symObjAddr: 0x0, symBinAddr: 0x100003A84, symSize: 0xFC }
+  - { offsetInCU: 0x6D45, offset: 0x6D45, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0xFC, symBinAddr: 0x100003B80, symSize: 0x114 }
+  - { offsetInCU: 0x6DBB, offset: 0x6DBB, size: 0x8, addend: 0x0, symName: __ZN5TNodeC1Ei, symObjAddr: 0x210, symBinAddr: 0x100003C94, symSize: 0x34 }
+  - { offsetInCU: 0x6E9E, offset: 0x6E9E, size: 0x8, addend: 0x0, symName: __ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsB7v160006EPFRS3_S4_E, symObjAddr: 0x244, symBinAddr: 0x100003CC8, symSize: 0x2C }
+  - { offsetInCU: 0x6ED0, offset: 0x6ED0, size: 0x8, addend: 0x0, symName: __ZN5TNodeC2Ei, symObjAddr: 0x2C8, symBinAddr: 0x100003D4C, symSize: 0x28 }
+  - { offsetInCU: 0x6F06, offset: 0x6F06, size: 0x8, addend: 0x0, symName: __ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE5widenB7v160006Ec, symObjAddr: 0x2F0, symBinAddr: 0x100003D74, symSize: 0x8C }
+  - { offsetInCU: 0x6F72, offset: 0x6F72, size: 0x8, addend: 0x0, symName: __ZNKSt3__15ctypeIcE5widenB7v160006Ec, symObjAddr: 0x3A8, symBinAddr: 0x100003E2C, symSize: 0x38 }
+...
