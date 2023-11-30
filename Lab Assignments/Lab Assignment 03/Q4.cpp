@@ -1,5 +1,7 @@
 #include <iostream>
-#include <bits/stdc++.h>
+// #include <bits/stdc++.h>
+#include<string>
+#include<stack>
 using namespace std;
 
 int prec(char c)

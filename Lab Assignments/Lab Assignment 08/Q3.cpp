@@ -8,7 +8,7 @@ struct TNode
     int data;
     TNode *right;
 
-    TNode(int val) : left(NULL), data(val), right(NULL){};
+    TNode(int val) : left(NULL), data(val), right(NULL){}
 };
 
 class bst
@@ -88,6 +88,8 @@ class bst
         int rightDepth = maxDepth(node->right);
 
         return 1 + max(leftDepth, rightDepth);
+        cout<<"hello";
+        cout<<"-------------------";
     }
 
     int minDepth(TNode *root)

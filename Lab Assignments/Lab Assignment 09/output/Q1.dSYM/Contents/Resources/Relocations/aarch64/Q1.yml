@@ -1,0 +1,11 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/adityapandey/Desktop/GitHub Repo/C:C++/DSA/Lab Assignments/Lab Assignment 09/output/Q1'
+relocations:
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: __ZN4heap6insertEi, symObjAddr: 0x0, symBinAddr: 0x100003C0C, symSize: 0xD4 }
+  - { offsetInCU: 0xB0C, offset: 0xB0C, size: 0x8, addend: 0x0, symName: __ZNSt3__14swapB7v160006IiEEvRT_S2_, symObjAddr: 0xD4, symBinAddr: 0x100003CE0, symSize: 0x3C }
+  - { offsetInCU: 0x2D2F, offset: 0x2D2F, size: 0x8, addend: 0x0, symName: __ZN4heap6insertEi, symObjAddr: 0x0, symBinAddr: 0x100003C0C, symSize: 0xD4 }
+  - { offsetInCU: 0x2D8C, offset: 0x2D8C, size: 0x8, addend: 0x0, symName: __ZN4heap3delEv, symObjAddr: 0x110, symBinAddr: 0x100003D1C, symSize: 0x178 }
+  - { offsetInCU: 0x2DE9, offset: 0x2DE9, size: 0x8, addend: 0x0, symName: __ZN4heap5printEv, symObjAddr: 0x288, symBinAddr: 0x100003E94, symSize: 0x7C }
+  - { offsetInCU: 0x2E2A, offset: 0x2E2A, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x304, symBinAddr: 0x100003F10, symSize: 0x7C }
+...

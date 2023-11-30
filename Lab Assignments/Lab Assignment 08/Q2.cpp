@@ -71,6 +71,12 @@ int MinEle(TNode *root){
     int leftMin = MinEle(root->left);
     int rightMin = MinEle(root->right);
 
+    cout<<"-------------------"<<endl;
+    cout<< leftMin<<endl;
+    cout<<rightMin<<endl;
+
+    cout<<"---------||----------"<<endl;
+
     int minimum = min(root->data, min(leftMin, rightMin));
     return minimum;
 }
@@ -86,32 +92,32 @@ int main()
     root->right->right = new TNode(70);
 
     // Recursive Fun
-    int key = 55;
-    TNode *found = searchRecursive(root, key);
-    if (found)
-    {
-        cout << "Found " << key << endl;
-    }
-    else
-    {
-        cout << "Not Found" << endl;
-    }
+    // int key = 55;
+    // TNode *found = searchRecursive(root, key);
+    // if (found)
+    // {
+    //     cout << "Found " << key << endl;
+    // }
+    // else
+    // {
+    //     cout << "Not Found" << endl;
+    // }
 
     // Iter..
-    int key2 = 40;
-    TNode *found2 = searchItr(root, key2);
-    if (found2)
-    {
-        cout << "Found" << endl;
-    }
-    else
-    {
-        cout << "Not Found" << endl;
-    }
+    // int key2 = 40;
+    // TNode *found2 = searchItr(root, key2);
+    // if (found2)
+    // {
+    //     cout << "Found" << endl;
+    // }
+    // else
+    // {
+    //     cout << "Not Found" << endl;
+    // }
 
     // Max Ele..
-    int max = MaxEle(root);
-    cout << "max ele is: " << max << endl;
+    // int max = MaxEle(root);
+    // cout << "max ele is: " << max << endl;
 
     // Min Ele..
     int min = MinEle(root);
