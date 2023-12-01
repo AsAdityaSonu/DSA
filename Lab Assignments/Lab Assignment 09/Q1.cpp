@@ -9,6 +9,7 @@ class heap{
     void insert(int val);
     void del();
     void print();
+    void heapify(int a[],int n, int i);
 };
 
 void heap::insert(int val){
@@ -50,6 +51,25 @@ void heap::del(){
 
 }
 
+void heapify(int a[], int n, int i){
+    int largest=i;
+    int left = 2*i;
+    int right=2*i+1;
+
+    if(left<n && a[left]>a[largest]){
+        largest = left;
+    }
+
+    if(right<n && a[right]>a[largest]){
+        largest = right;
+    }
+
+    if(largest!=i){
+        swap(a[i],a[largest]);
+        heapify(a,n,largest);
+    }
+}
+
 void heap::print(){
     for (int i=1;i<=size;i++){
         cout<<arr[i];
@@ -66,5 +86,12 @@ int main()
     h.print();
     h.del();
     h.print();
+
+
+    int arr[6]={-1,54,53,55,52,50};
+    int n=6;
+    for(int i=n/2;i>0;i--){
+        heapify(arr,n,i);
+    }
     return 0;
 }
