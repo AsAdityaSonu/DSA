@@ -1,98 +1,60 @@
-#include <iostream>
-using namespace std;
+#include <stdio.h>
+#include <stdlib.h>
 
-struct dnode
-{
-    struct dnode *prev;
-    int data;
-    struct dnode *next;
-    dnode(int val) : prev(nullptr), data(val), next(nullptr) {}
+struct Node {
+	int data;
+	struct Node* next;
+	struct Node* prev;
 };
 
-struct dnode *CreateNode(int data)
-{
-    return new dnode(data);
+void reverse(struct Node** head_ref) {
+	struct Node* temp = NULL;
+	struct Node* current = *head_ref;
+
+	while (current != NULL) {
+		temp = current->prev;
+		current->prev = current->next;
+		current->next = temp;
+		current = current->prev;
+	}
+
+	if (temp != NULL)
+		*head_ref = temp->prev;
 }
 
-void ReverseFromIndex2(struct dnode **head)
-{
-    if (*head == nullptr || (*head)->next == nullptr || (*head)->next->next == nullptr)
-    {
-        cout << "Not enough elements to reverse starting from index 2." << endl;
-        return;
-    }
+void push(struct Node** head_ref, int new_data) {
+	struct Node* new_node = (struct Node*)malloc(sizeof(struct Node));
+	new_node->data = new_data;
+	new_node->prev = NULL;
+	new_node->next = (*head_ref);
 
-    struct dnode *current = *head;
-    int count = 1;
+	if ((*head_ref) != NULL)
+		(*head_ref)->prev = new_node;
 
-    while (count < 2 && current != nullptr)
-    {
-        current = current->next;
-        count++;
-    }
-
-    if (current == nullptr)
-    {
-        cout << "Index 2 not found." << endl;
-        return;
-    }
-
-    struct dnode *prev = nullptr;
-    struct dnode *next = nullptr;
-    while (current != nullptr)
-    {
-        next = current->next;
-        current->next = prev;
-        current->prev = next;
-        prev = current;
-        current = next;
-    }
-
-    if (count == 2)
-    {
-        (*head)->next->prev = nullptr;
-        *head = prev;
-    }
+	(*head_ref) = new_node;
 }
 
-int main()
-{
-    struct dnode *head;
-    struct dnode *second;
-    struct dnode *third;
-    struct dnode *fourth;
-    struct dnode *fifth;
-    struct dnode *sixth;
-    struct dnode *seventh;
+void printList(struct Node* node) {
+	while (node != NULL) {
+		printf("%d ", node->data);
+		node = node->next;
+	}
+}
 
-    // Allocating memory dynamically
-    head = CreateNode(5);
-    second = CreateNode(4);
-    third = CreateNode(3);
-    fourth = CreateNode(2);
-    fifth = CreateNode(1);
-    sixth = CreateNode(6);
-    seventh = CreateNode(7);
+int main() {
+	struct Node* head = NULL;
 
-    // Linking nodes
-    head->next = second;
-    second->prev = head;
-    second->next = third;
-    third->prev = second;
-    third->next = fourth;
-    fourth->prev = third;
-    fourth->next = fifth;
-    fifth->prev = fourth;
-    fifth->next = sixth;
-    sixth->prev = fifth;
-    sixth->next = seventh;
-    seventh->prev = sixth;
-    seventh->next = nullptr;
+	push(&head, 2);
+	push(&head, 4);
+	push(&head, 8);
+	push(&head, 10);
 
-    // Example: Reverse elements starting from index 2
-    ReverseFromIndex2(&head);
+	printf("\n Original Linked list ");
+	printList(head);
 
-    // Add more operations or display the reversed list here
+	reverse(&head);
 
-    return 0;
+	printf("\n Reversed Linked list ");
+	printList(head);
+
 }
