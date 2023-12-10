@@ -48,12 +48,80 @@ TNode *searchItr(TNode *root, int key)
     return nullptr;
 }
 
+TNode* findMin(TNode* node) {
+    TNode* current = node;
+    while (current && current->left != nullptr) {
+        current = current->left;
+    }
+    return current;
+}
+
+TNode* findMax(TNode* node) {
+    TNode* current = node;
+    while (current && current->right != nullptr) {
+        current = current->right;
+    }
+    return current;
+}
+
+TNode* inorderSuccessor(TNode* root, int key) {
+    TNode* current = searchItr(root, key);
+    if (current == nullptr) {
+        return nullptr;
+    }
+
+    // Case 1: Node has a right subtree
+    if (current->right != nullptr) {
+        return findMin(current->right);
+    }
+
+    // Case 2: Node doesn't have a right subtree
+    TNode* successor = nullptr;
+    TNode* ancestor = root;
+    while (ancestor != current) {
+        if (current->data < ancestor->data) {
+            successor = ancestor;
+            ancestor = ancestor->left;
+        } else {
+            ancestor = ancestor->right;
+        }
+    }
+
+    return successor;
+}
+
+TNode* inorderPredecessor(TNode* root, int key) {
+    TNode* current = searchItr(root, key);
+    if (current == nullptr) {
+        return nullptr;
+    }
+
+    // Case 1: Node has a left subtree
+    if (current->left != nullptr) {
+        return findMax(current->left);
+    }
+
+    // Case 2: Node doesn't have a left subtree
+    TNode* predecessor = nullptr;
+    TNode* ancestor = root;
+    while (ancestor != current) {
+        if (current->data > ancestor->data) {
+            predecessor = ancestor;
+            ancestor = ancestor->right;
+        } else {
+            ancestor = ancestor->left;
+        }
+    }
+
+    return predecessor;
+}
+
 // Max Ele
 int MaxEle(TNode *root)
 {
     if (root == nullptr)
     {
-        return INT_MIN; 
+        return INT_MIN;
     }
 
     int leftMax = MaxEle(root->left);
@@ -63,19 +131,21 @@ int MaxEle(TNode *root)
     return maximum;
 }
 
-int MinEle(TNode *root){
-    if(root == nullptr){
+int MinEle(TNode *root)
+{
+    if (root == nullptr)
+    {
         return INT_MAX;
     }
 
     int leftMin = MinEle(root->left);
     int rightMin = MinEle(root->right);
 
-    cout<<"-------------------"<<endl;
-    cout<< leftMin<<endl;
-    cout<<rightMin<<endl;
+    cout << "-------------------" << endl;
+    cout << leftMin << endl;
+    cout << rightMin << endl;
 
-    cout<<"---------||----------"<<endl;
+    cout << "---------||----------" << endl;
 
     int minimum = min(root->data, min(leftMin, rightMin));
     return minimum;
@@ -92,16 +162,16 @@ int main()
     root->right->right = new TNode(70);
 
     // Recursive Fun
-    // int key = 55;
-    // TNode *found = searchRecursive(root, key);
-    // if (found)
-    // {
-    //     cout << "Found " << key << endl;
-    // }
-    // else
-    // {
-    //     cout << "Not Found" << endl;
-    // }
+    int key = 55;
+    TNode *found = searchRecursive(root, key);
+    if (found)
+    {
+        cout << "Found " << key << endl;
+    }
+    else
+    {
+        cout << "Not Found" << endl;
+    }
 
     // Iter..
     // int key2 = 40;
@@ -121,7 +191,25 @@ int main()
 
     // Min Ele..
     int min = MinEle(root);
-    cout<<"min ele is: "<< min<<endl;
+    cout << "min ele is: " << min << endl;
+
+    // Inorder Successor
+    int key_successor = 40;
+    TNode* successorNode = inorderSuccessor(root, key_successor);
+    if (successorNode != nullptr) {
+        cout << "Inorder Successor of " << key_successor << " is: " << successorNode->data << endl;
+    } else {
+        cout << "No Inorder Successor found for " << key_successor << endl;
+    }
+
+    // Inorder Predecessor
+    int key_predecessor = 55;
+    TNode* predecessorNode = inorderPredecessor(root, key_predecessor);
+    if (predecessorNode != nullptr) {
+        cout << "Inorder Predecessor of " << key_predecessor << " is: " << predecessorNode->data << endl;
+    } else {
+        cout << "No Inorder Predecessor found for " << key_predecessor << endl;
+    }
 
     delete root->right->right;
     delete root->right->left;

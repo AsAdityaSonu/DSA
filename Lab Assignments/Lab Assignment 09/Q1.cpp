@@ -51,22 +51,22 @@ void heap::del(){
 
 }
 
-void heapify(int a[], int n, int i){
+void heapify(int arr[], int n, int i){
     int largest=i;
     int left = 2*i;
     int right=2*i+1;
 
-    if(left<n && a[left]>a[largest]){
+    if(left<n && arr[left]>arr[largest]){
         largest = left;
     }
 
-    if(right<n && a[right]>a[largest]){
+    if(right<n && arr[right]>arr[largest]){
         largest = right;
     }
 
     if(largest!=i){
-        swap(a[i],a[largest]);
-        heapify(a,n,largest);
+        swap(arr[i],arr[largest]);
+        heapify(arr,n,largest);
     }
 }
 
