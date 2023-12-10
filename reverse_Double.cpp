@@ -7,6 +7,7 @@ struct Node {
 	struct Node* prev;
 };
 
+
 void reverse(struct Node** head_ref) {
 	struct Node* temp = NULL;
 	struct Node* current = *head_ref;
