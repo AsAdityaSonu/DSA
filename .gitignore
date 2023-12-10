@@ -1,0 +1,23 @@
+# Ignore all files
+*
+
+# Except for these specific file types
+!*.cpp
+!*.c
+
+# Exclude output folders
+!Lab Assignments/
+!Lab Assignments/Lab Assignment 01/
+!Lab Assignments/Lab Assignment 02/
+!Lab Assignments/Lab Assignment 03/
+!Lab Assignments/Lab Assignment 04/
+!Lab Assignments/Lab Assignment 05/
+!Lab Assignments/Lab Assignment 06/
+!Lab Assignments/Lab Assignment 07/
+!Lab Assignments/Lab Assignment 08/
+!Lab Assignments/Lab Assignment 09/
+!Lab Assignments/Lab Assignment 10/
+
+!Leet Code/Easy
+!Leet Code/Medium
+!Leet Code/Hard
