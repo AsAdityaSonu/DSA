@@ -4,6 +4,7 @@
 # Except for these specific file types
 !*.cpp
 !*.c
+!*.gitignore
 
 # Exclude output folders
 !Lab Assignments/
