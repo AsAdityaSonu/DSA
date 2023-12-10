@@ -1,0 +1,6 @@
+# Ignore all files
+*
+
+# Except for these specific file types
+!*.cpp
+!*.c
