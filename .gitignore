@@ -6,7 +6,7 @@
 !*.c
 !*.gitignore
 
-# Exclude output folders
+# Lab Assignments DSA
 !Lab Assignments/
 !Lab Assignments/Lab Assignment 01/
 !Lab Assignments/Lab Assignment 02/
@@ -19,12 +19,34 @@
 !Lab Assignments/Lab Assignment 09/
 !Lab Assignments/Lab Assignment 10/
 
+# C Assignments
+!C Assignments/
+!C Assignments/Assignment 1/
+!C Assignments/Assignment 2/
+!C Assignments/Assignment 3/
+!C Assignments/Assignment 4/
+!C Assignments/Assignment 5/
+!C Assignments/Assignment 6/
+!C Assignments/Assignment 7/
+
+# C ++ Assignments
+!C++ Assignments/
+!C++ Assignments/Assignment 1/
+!C++ Assignments/Assignment 2/
+!C++ Assignments/Assignment 3/
+!C++ Assignments/Assignment 4/
+!C++ Assignments/Assignment 5/
+!C++ Assignments/Assignment 6/
+!C++ Assignments/Assignment 7/
+
+# Leet Code Questions
 !Leet Code
 !Leet Code/Easy/
 !Leet Code/Medium/
 !Leet Code/Hard/
 !Leet Code/Contest/
 
+# DAA Assignments
 !DAA
 !DAA/Assignment 1/
 !DAA/Assignment 2/
