@@ -7,37 +7,37 @@
 !*.gitignore
 
 # Lab Assignments DSA
-!Lab Assignments/
-!Lab Assignments/Lab Assignment 01/
-!Lab Assignments/Lab Assignment 02/
-!Lab Assignments/Lab Assignment 03/
-!Lab Assignments/Lab Assignment 04/
-!Lab Assignments/Lab Assignment 05/
-!Lab Assignments/Lab Assignment 06/
-!Lab Assignments/Lab Assignment 07/
-!Lab Assignments/Lab Assignment 08/
-!Lab Assignments/Lab Assignment 09/
-!Lab Assignments/Lab Assignment 10/
+!03_DSA_Assignments/
+!03_DSA_Assignments/Lab Assignment 01/
+!03_DSA_Assignments/Lab Assignment 02/
+!03_DSA_Assignments/Lab Assignment 03/
+!03_DSA_Assignments/Lab Assignment 04/
+!03_DSA_Assignments/Lab Assignment 05/
+!03_DSA_Assignments/Lab Assignment 06/
+!03_DSA_Assignments/Lab Assignment 07/
+!03_DSA_Assignments/Lab Assignment 08/
+!03_DSA_Assignments/Lab Assignment 09/
+!03_DSA_Assignments/Lab Assignment 10/
 
 # C Assignments
-!C Assignments/
-!C Assignments/Assignment 1/
-!C Assignments/Assignment 2/
-!C Assignments/Assignment 3/
-!C Assignments/Assignment 4/
-!C Assignments/Assignment 5/
-!C Assignments/Assignment 6/
-!C Assignments/Assignment 7/
+!01_C_Assignments/
+!01_C_Assignments/Assignment 1/
+!01_C_Assignments/Assignment 2/
+!01_C_Assignments/Assignment 3/
+!01_C_Assignments/Assignment 4/
+!01_C_Assignments/Assignment 5/
+!01_C_Assignments/Assignment 6/
+!01_C_Assignments/Assignment 7/
 
 # C ++ Assignments
-!C++ Assignments/
-!C++ Assignments/Assignment 1/
-!C++ Assignments/Assignment 2/
-!C++ Assignments/Assignment 3/
-!C++ Assignments/Assignment 4/
-!C++ Assignments/Assignment 5/
-!C++ Assignments/Assignment 6/
-!C++ Assignments/Assignment 7/
+!02_C++_Assignments/
+!02_C++_Assignments/Assignment 1/
+!02_C++_Assignments/Assignment 2/
+!02_C++_Assignments/Assignment 3/
+!02_C++_Assignments/Assignment 4/
+!02_C++_Assignments/Assignment 5/
+!02_C++_Assignments/Assignment 6/
+!02_C++_Assignments/Assignment 7/
 
 # Leet Code Questions
 !Leet Code
