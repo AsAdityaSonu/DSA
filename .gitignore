@@ -5,6 +5,8 @@
 !*.cpp
 !*.c
 !*.gitignore
+!*.py
+!*.js
 
 # Lab Assignments DSA
 !03_DSA_Assignments/
